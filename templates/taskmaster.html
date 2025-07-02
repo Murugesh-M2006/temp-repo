@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TaskMaster2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="/logout">Logout</a>
+  <div class="theme-switch" id="theme-switch" title="Toggle theme">
+    🌙
+  </div>
+
+  <div class="container">
+    <h1>TaskMaster</h1>             
+    <p class="date" id="current-date"></p>
+
+    <h2>Add New Task</h2>
+    <form class="task-form" id="task-form">
+      <label for="task">Add a new task:</label><br>
+      <input type="text" id="task" placeholder="Add a new task..." required>
+      <div class="time-input-group">
+        <input type="date" id="due-date">
+      </div>
+      <div class="reminder-section">
+        <button type="button" id="reminder-toggle" class="reminder-toggle">
+          <span class="reminder-icon">🔔</span>
+          Set Reminder
+          <span class="toggle-arrow">▼</span>
+        </button>
+        <div id="reminder-options" class="reminder-options" style="display: none;">
+          <div class="reminder-inputs">
+            <input type="date" id="reminder-date" class="reminder-date">
+            <input type="time" id="reminder-time" class="reminder-time">
+          </div>
+        </div>
+      </div>
+      <select id="priority" class="priority-select">
+        <option value="low">Low Priority</option>
+        <option value="medium">Medium Priority</option>
+        <option value="high">High Priority</option>
+      </select>
+      <select id="category">
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Shopping">Shopping</option>
+      </select>
+      <button type="submit" id="add-task-btn">+ Add</button>
+    </form>
+
+    <hr>
+    
+    <table>
+      <tr>
+        <td valign="top">
+          <div class="categories">
+            <h3><u>Categories</u></h3>
+            <ul style="list-style: none; padding-left: 0;">
+              <li><button type="button" class="category-btn" data-category="All">All</button></li>
+              <li><button type="button" class="category-btn" data-category="Work">Work</button></li>
+              <li><button type="button" class="category-btn" data-category="Personal">Personal</button></li>
+              <li><button type="button" class="category-btn" data-category="Shopping">Shopping</button></li>
+            </ul>
+
+            <h3><u>Sort By</u></h3>
+            <div class="sort-by">
+              <button class="sort-btn" id="dueDateSort">
+                <span class="sort-icon">📅</span>
+                Due Date
+                <span class="sort-arrow">▼</span>
+              </button>
+            </div>
+
+            <div class="priority-filter">
+              <button class="filter-toggle-btn">Priority Filter ▼</button>
+              <ul class="priority-options" style="display: none;">
+                <li class="priority-option" data-priority="all">All Priorities</li>
+                <li class="priority-option" data-priority="high">High Priority</li>
+                <li class="priority-option" data-priority="medium">Medium Priority</li>
+                <li class="priority-option" data-priority="low">Low Priority</li>
+              </ul>
+            </div>
+          </div>
+        </td>
+
+        <td valign="top" class="tasks-section">
+          <h3><u>Pending Tasks</u></h3>
+          <ul class="tasks-list" id="pending-tasks">
+          </ul>
+
+          <h3><u>Completed Tasks</u></h3>
+          <ul class="tasks-list completed-tasks" id="completed-tasks">
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
